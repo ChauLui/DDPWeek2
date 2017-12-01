@@ -1,0 +1,38 @@
+---
+title: "Coursera DDP Week2"
+author: "Chau Lui"
+date: "December 1, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Places of interest during the holidays in midtown New York City
+
+
+
+```{r workInterest, echo = FALSE, message=FALSE}
+#  message=FALSE to suppress message Assuming lng and lat are longitude and latitude, respectively
+
+library(leaflet)
+
+sightSites <- data.frame(
+  spot = c("Splendor of St. Patrick's Cathedral", "Macy's Wonder Windows", "Sak's Fifth Ave window displays","Henri Bendel window displays", "Rockefeller Christmas Tree", "Times Square New Year Celebration"),
+  lat = c(40.75854, 40.75078, 40.75723, 40.76212,40.75883, 40.75889),
+  lng = c(-73.97629, -73.98895, -73.97696, -73.97482, -73.97834,-73.98513))
+
+# 40.75883, -73.97834
+# 40.75889, -73.98513
+
+my_map <- sightSites %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(popup = sightSites$spot)  
+my_map
+
+
+```
+
+
